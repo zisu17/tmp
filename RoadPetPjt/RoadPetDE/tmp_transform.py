@@ -14,7 +14,7 @@ class ColorTransformer:
 
         roaddog = roaddog.join(shelter_df, roaddog.ST_NM == shelter_df.CARE_NM)
         roaddog_select = roaddog.select(
-                    col('DESERTION_NO')
+                    col('DESERTION_NO').cast('string')
                     ,col('COLOR')
                     ,col('SEX')
                     ,col('KIND_NM')
@@ -26,6 +26,6 @@ class ColorTransformer:
                     ,col('HAPPEN_PLACE')
                     ,col('SPECIAL_MARK')
                     ,col('PROFILE')
-                    ,col('ST_NM'))
+                    ,col('ST_CD'))
         roaddog_select.show()
         save_data(DataWarehouse, roaddog_select, 'ROADDOG_INFO')
