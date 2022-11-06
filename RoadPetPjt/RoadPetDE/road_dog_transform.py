@@ -64,3 +64,4 @@ class RoadDogTrasformer:
 
         road_dog_finish = road_dog_df.select("*").where(road_dog_df.PROCESS_STATE.like('종료%'))
         road_dog_finish.show()
+
